@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Advanced Pong Game</title>
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Start Menu -->
+        <div id="startMenu" class="activeMenu">
+            <div class="menu-header">
+                <h1>PONG!</h1>
+                <p class="menu-subtitle">Reimagined Classic Arcade</p>
+            </div>
+
+            <!-- Main menu contents-->
+            <div class="menu-content">
+                <!-- Game mode selection -->
+                <div class="menu-section" id="gameModeSelector">
+                    <h2>Game Mode</h2>
+                    <div class="button-group">
+                        <button id="pvpMode" class="menu-button active">Player vs Player</button>
+                        <button id="pvcMode" class="menu-button">Player vs Computer</button>
+                    </div>
+                </div>
+
+                <!-- Difficulty selection (for PvC mode only) -->
+                <div class="menu-section" id="diffcultySelector">
+                    <h2>Difficulty</h2>
+                    <div class="button-group">
+                        <button id="easyMode" class="menu-button active">Easy</button>
+                        <button id="mediumMode" class="menu-button">Medium</button>
+                        <button id="hardMode" class="menu-button">Hard</button>
+                    </div>
+                </div>
+
+                <!-- PvP customization dropdown menu -->
+                <div class="menu-section dropdown-section" id="pvpSelector">
+                    <h2>PvP Mode Options</h2>
+                    <div class="dropdown-container">
+                        <select class="styled-dropdown" id="pvpModeSelect">
+                            <option value="defaultMode">Classic</option>
+                            <option value="xyMode">Horizontal paddle movement</option>
+                            <option value="tiltingMode">Tilting Paddles</option>
+                        </select>
+                        <div class="dropdown-arrow">▼</div>
+                    </div>
+                </div>
+
+                <!-- Control customization dropdown menu -->
+                <div class="menu-section dropdown-section" id="controlSelector">
+                    <h2>Control Settings</h2>
+                    <div class="dropdown-container">
+                        <select class="styled-dropdown" id="controlModeSelect">
+                            <option value="keyboardMode">Keyboard Controls</option>
+                            <option value="mouseControl">Guided by Mouse</option>
+                        </select>
+                        <div class="dropdown-arrow">▼</div>
+                    </div>
+                </div>
+
+                <!-- Ball customization -->
+                <div class="menu-section" id="ballSelector">
+                    <h2>Ball Settings</h2>
+                    <div class="settings-grid">
+                        <div class="setting-item">
+                            <label for="ballColor">Color</label>
+                            <input type="color" id="ballColor" value="#ffffff">
+                        </div>
+                        <div class="setting-item">
+                            <label for="ballSize">Size: <span id="ballSizeValue">10</span></label>
+                            <input type="range" id="ballSize" min="5" max="20" value="10">
+                        </div>
+                        <div class="setting-item">
+                            <label for="ballSpeed">Speed: <span id="ballSpeedValue">5</span></label>
+                            <input type="range" id="ballSpeed" min="1" max="10" value="5">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Start game -->
+            <div class="start-button-container">
+                <button id="startGame" class="start-button">
+                    <span>START GAME</span>
+                    <div class="button-glow"></div>
+                </button>
+            </div>
+            
+        </div>
+
+        <!-- Game Over Menu -->
+        <div id="gameOverMenu" class="menu">
+            <div class="menu-header">
+                <h1>GAME OVER</h1>
+                <div id="winnerText" class="winner-text">Player 1 Wins!</div>
+            </div>
+            <div class="score-display">
+                <div class="player-score">
+                    <span class="player-label">Player 1</span>
+                    <span id="finalScore1" class="score-value">0</span>
+                </div>
+                <div class="player-score">
+                    <span class="player-label">Player 2</span>
+                    <span id="finalScore2" class="score-value">0</span>
+                </div>
+            </div>
+            <div class="button-group">
+                <button id="restartGame" class="menu-button">Play Again</button>
+                <button id="backToMenu" class="menu-button secondary">Main Menu</button>
+            </div>
+        </div>
+
+        <!-- Game Canvas -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- In-game Score Display -->
+        <div id="scoreDisplay">
+            <div class="score-player" id="player1Score">0</div>
+            <div class="score-divider">:</div>
+            <div class="score-player" id="player2Score">0</div>
+        </div>
+
+        <!--JS modules-->
+        <script src="./js/main.js" type="module"></script>
+        <script src="./js/menu.js" type="module"></script>
+        <script src="./js/audio.js" type="module"></script>
+        <script src="./js/config.js" type="module"></script>
+        <script src="./js/game.js" type="module"></script>
+    </body>
+
+</html>
